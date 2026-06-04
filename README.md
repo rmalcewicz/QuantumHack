@@ -32,22 +32,22 @@ In real hardware, you would then feed the information on logical errors back int
 
 ## Judging criteria
 
-1) Theoretical correctness. Does the experiment actually demonstrate that entanglement must be present? (20%)
-2) Sophistication of the implementation. Have you optimized your circuits for the performance/architecture of the quantum computer? (30%)
-3) Number of qubits entangled. (10-40%)
-4) Flexibility of the experiment. Have you shown that entanglement is present in many different (orthogonal) states? (10-40%)
+1) Theoretical correctness. Does the experiment actually set up a surface correctly? Is the pipeline fully functional? (40%)
+2) Sophistication of the implementation. Have you optimized your circuits for the performance/architecture of the quantum computer? Can you prove a low number of SWAPS? (20%)
+3) Logical error rate statistics. (20%)
+4) Flexibility of the experiment and integration of advanced functionalities - Circuit compilation techniques, Noise Model improvements, Pulse-level compilations,... (20%)
 
-You can choose what fraction you want us to judge on #3 and #4. Minimum 10% for each criterion, adding up to 40%.
+
 
 Bonus points will be awarded (at our discretion) for:
-- Scalable solutions - would your experiment be feasible on a new generation of quantum computers with many hundreds or even thousands of qubits?
-- Experimentally identifying the most important reason you can't entangle more qubits
-- Mitigating any loopholes that allow your experimental results to occur without entanglement being present 
+- Hardware flexibility.
+- Integration of advanced functionalities.
+- Experimentally identifying the most important reasons for improving LER.
 - Other particularly cool and surprising ideas
 
 ## Submissions
 
-Submit your code and any other key results through [this Google form](https://docs.google.com/forms/d/e/1FAIpQLSdbaPjK0W9HkfjkZ8cLIQOBodTtTNrFFlBE-Q9X4waKg0TbWg/viewform?usp=dialog). [TODO]
+Submit your code and any other key results through [this Google form](https://docs.google.com/forms/d/e/1FAIpQLSeKTmoGUzxhrc4bPtLJ5Vp3VtoFSrtoes1UP3_6IoLgZDLIxg/viewform?usp=publish-editor). 
 
 ---
 
@@ -55,7 +55,7 @@ Submit your code and any other key results through [this Google form](https://do
 
 **All the provided functionality is optional!** Should you wish to build from scratch, feel free to do so! 
 
-### Circuit translation (`surface_code_stim.py`)
+### Circuit translation (`surface_code.py`)
 
 Should you wish to use Stim, the full Stim-to-Qiskit translation layer is implemented. Functionality:
 
@@ -64,7 +64,7 @@ Should you wish to use Stim, the full Stim-to-Qiskit translation layer is implem
 * handles mid-circuit reset by translating Stim's `MR` instruction into a measure-then-reset pair, 
 * preserves measurement order exactly.
 
-### Syndrome extraction (extract_syndromes.py)
+### Syndrome extraction (`extract_syndromes.py`)
 
 The full syndrome extraction step is implemented using Stim's ``compile_m2d_converter()``, which converts raw measurement bitstrings into detection events and observable flips in a single call. If you are working within a pure Qiskit workflow, you can replace this with a manual implementation: detection events are the XOR of consecutive ancilla measurement rounds (a stabilizer that changes between rounds indicates an error), and the logical observable is recovered from the parity of the final data qubit measurements. Either way, what matters for the decoder is the same output shape — a (shots, num_detectors) boolean array of detection events and a (shots, num_observables) array of logical outcomes. The dictionary also carries per-shot syndrome weights and per-detector firing rates as diagnostics.
 
@@ -123,9 +123,10 @@ The current pipeline operates at the gate level and relies on Qiskit's transpile
 **Also activate advanced circuit compilation techniques, such as dynamical decoupling (DD), readily available within IQMs stack.**
 
 
-### Different decoders
+### Different decoders and advanced functionalities
 
 PyMatching (minimum-weight perfect matching) is the natural starting point, but it is not the only option. **Union-Find decoding** is asymptotically faster and nearly as accurate near threshold. **Belief propagation** decoders can incorporate more detailed noise information. The MWPM graph itself can be weighted by calibration data from Resonance, which typically improves decoding accuracy on real hardware. **There are many more, so feel to investigate!** 
+In particular using calibration data and setting up experiments for extended noise model characterization are of very high value! These can massively improve the decoding pipeline. 
 
 For a more substantial extension, the **NVIDIA Ising Predecoder** offers a hardware-accelerated decoding path. This route requires working through the Ising model's `MemoryCircuit` class for circuit generation (which handles native X-basis preparation and measurement and a different Stim-to-Qiskit translation), and is therefore more involved. Please approach us if you are interested! 
 
@@ -134,5 +135,7 @@ For a more substantial extension, the **NVIDIA Ising Predecoder** offers a hardw
 The pipeline as set up targets a distance-3 rotated surface code (17 qubits) on a single 5×5 region of Emerald. Several natural extensions exist: running the same code on different 5×5 sub-regions of the chip and comparing logical error rates across regions reveals spatial variation in hardware quality. Trying distance-5 (49 qubits) would require a larger patch but fits on Emerald's full qubit count. Running multiple rounds of stabilizer measurement rather than just one round (the current hardware setting) moves the experiment toward fault-tolerant operation rather than a single-round snapshot, and gives the decoder temporal correlations to exploit.
 
 
+# Useful Resources
 
+**Please see the ``UsefulResources.md`` markdown for an overview over useful resources!**
 

@@ -5,12 +5,12 @@ from internal_helpers import *
 """
 surface_code_stim.py
 
-Full pipeline: Stim circuit → Qiskit → IQM Emerald → PyMatching
+Full pipeline: (Stim circuit →) Qiskit → IQM Emerald → Decoder
 
   ┌─────────────────────────────────────────────────────────────────────┐
   │  Code: rotated surface code, memory-Z experiment                    │
   │  Distance 3: 9 data + 8 ancilla = 17 qubits                         │
-  │  Connectivity: diagonal (Stim coords ÷2),                           │
+  │  Connectivity: diagonal,                                            │
   │  SWAPs for 6 of the 12 unique CX pairs. Circuit depth ≈ 9 (ideal).  │
   └─────────────────────────────────────────────────────────────────────┘
 
@@ -18,11 +18,10 @@ Sections
 --------
   1. Stim circuit generation
   2. Stim → Qiskit conversion
-  3. Emerald qubit mapping
+  3. OPTIONAL Emerald qubit mapping
   4. Stim simulation  (no hardware, for threshold / LER curves)
   5. Hardware execution on IQM Resonance
-  6. Hardware results → detection events → PyMatching
-  8. Quick demo  (run as script)
+  6. Hardware results → detection events → Decoder
 
 Usage
 -----
@@ -32,9 +31,7 @@ Usage
   # Full hardware pipeline:
   from surface_code_stim import run_hardware_experiment
 
-Authors: pipeline built on Stim (Craig Gidney), PyMatching (Oscar Higgott),
-         IQM Resonance connection pattern from EmeraldRepetitionCode.ipynb
-         (Pedro Parrado, Stefan Seegerer, IQM)
+
 """
 
 import numpy as np
@@ -227,3 +224,14 @@ def stim_to_qiskit(stim_circuit: stim.Circuit) -> tuple[QuantumCircuit, dict, li
 
 # TBD
 
+# ─────────────────────────────────────────────────────────────────────────────
+#  5.  Hardware execution
+# ─────────────────────────────────────────────────────────────────────────────
+
+# TBD
+
+# ─────────────────────────────────────────────────────────────────────────────
+#  6.  Offline Decoding 
+# ─────────────────────────────────────────────────────────────────────────────
+
+# TBD

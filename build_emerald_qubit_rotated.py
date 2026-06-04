@@ -66,7 +66,8 @@ def build_emerald_qubit_map(
     return qubit_map
 
 
-# REWORK
+
+
 
 def print_qubit_map(
     stim_circuit: stim.Circuit,
