@@ -2,10 +2,6 @@
 
 Take a look at the Connecting To Resonance tutorial in the challenge's Github repo (``iqm_utils``) to learn how to set up your Python environment, make a Resonance account, connect to Resonance in your preferred framework, and manage jobs on the quantum computer.
 
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
 ## [IQM Resonance](https://resonance.meetiqm.com/)
 
 IQM Resonance is our quantum computing cloud platform that gives you access to IQM’s quantum hardware to design and run quantum programs. It supports multiple programming frameworks, offers thorough insights on our QPU specifications and your quantum jobs. Tools like the open-source [Qrisp](https://www.qrisp.eu) SDK for development and the pulse-level access package PulLA give you full control over the stack. 
@@ -14,20 +10,12 @@ IQM Resonance is our quantum computing cloud platform that gives you access to I
 
 **[Check out the IQM PulLA documentation here](https://docs.iqm.tech/iqm-pulla/)** - **To access PulLA you need to be a part of a paid organisation, please approach your mentors about this!**
 
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
 ## iqm_utils 
 
 * ``QPURepetitionsCode``: A notebook example to run repetion codes on Garnet.
 * ``routing_to_specific_qubits.ipynb``: In this notebook, you will run and compare a GHZ state as implemented naively and with respect to the qubit connectivity of the IQM quantum processor. Use this as baseline how to choose specific qubit layouts on hardware.
 * ``get_calibration_data``: functionality to get extract calibration data from Resonance and feed it into your code.
 * ``blogposts/``: blogposts describing how surface code work in general
-<<<<<<< Updated upstream
-* ``GarnetRepetitionsCode``: A notebook example to run repetion codes on Garnet.
-=======
->>>>>>> Stashed changes
 
 **Suggested reading order for iqm_utils QEC material:**
 

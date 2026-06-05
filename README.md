@@ -50,17 +50,10 @@ Bonus points will be awarded (at our discretion) for:
 
 Submit your code and any other key results through [this Google form](https://docs.google.com/forms/d/e/1FAIpQLSeKTmoGUzxhrc4bPtLJ5Vp3VtoFSrtoes1UP3_6IoLgZDLIxg/viewform?usp=publish-editor). 
 
-<<<<<<< Updated upstream
-# Useful Resources
-
-**Please see the ``UsefulResources.md`` markdown for an overview over useful resources!** Such as, links to **IQM PulLA**, client-side libraries such as **Dynamical Decoupling**, access links to IQM Resonance!
-
-=======
 
 # Useful Resources
 
 **Please see the ``UsefulResources.md`` markdown for an overview over useful resources!** Such as, links to **IQM PulLA**, client-side libraries such as **Dynamical Decoupling**, access links to IQM Resonance!
->>>>>>> Stashed changes
 **To access PulLA you need to be a part of a paid organisation, please approach your mentors about this!**
 
 
