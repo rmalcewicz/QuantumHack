@@ -50,6 +50,13 @@ Bonus points will be awarded (at our discretion) for:
 
 Submit your code and any other key results through [this Google form](https://docs.google.com/forms/d/e/1FAIpQLSeKTmoGUzxhrc4bPtLJ5Vp3VtoFSrtoes1UP3_6IoLgZDLIxg/viewform?usp=publish-editor). 
 
+# Useful Resources
+
+**Please see the ``UsefulResources.md`` markdown for an overview over useful resources!** Such as, links to **IQM PulLA**, client-side libraries such as **Dynamical Decoupling**, access links to IQM Resonance!
+
+**To access PulLA you need to be a part of a paid organisation, please approach your mentors about this!**
+
+
 ---
 
 ## What Is Already There
@@ -137,7 +144,5 @@ For a more substantial extension, the **NVIDIA Ising Predecoder** offers a hardw
 The pipeline as set up targets a distance-3 rotated surface code (17 qubits) on a single 5×5 region of Emerald. Several natural extensions exist: running the same code on different 5×5 sub-regions of the chip and comparing logical error rates across regions reveals spatial variation in hardware quality. Trying distance-5 (49 qubits) would require a larger patch but fits on Emerald's full qubit count. Trying the distance-3 code on Garnet also gives you an idea on how a different QPU behaves. 
 
 
-# Useful Resources
 
-**Please see the ``UsefulResources.md`` markdown for an overview over useful resources!**
 
