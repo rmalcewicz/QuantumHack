@@ -1,7 +1,6 @@
-from BUILDING_THE_STUMP.ResonanceIsingConnector.surface_code_stim import * 
-from BUILDING_THE_STUMP.ResonanceIsingConnector.build_emerald_qubit_rotated import *
-from BUILDING_THE_STUMP.ResonanceIsingConnector.extract_syndromes import *
-#from export_stim_files import *
+from surface_code import * 
+from build_emerald_qubit_rotated import *
+from extract_syndromes import *
 
 
 TOKEN = ""
@@ -89,6 +88,9 @@ def decode_hardware_results(
 ) -> tuple[float, float]:
     """
     Decodes the output of extract_syndromes() via your desired decoder.
+
+    NOTE: Other parameters can be important for this function, such as a noise model. 
+
 
     Parameters
     ----------

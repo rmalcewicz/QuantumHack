@@ -132,7 +132,7 @@ def stim_to_qiskit(stim_circuit: stim.Circuit) -> tuple[QuantumCircuit, dict, li
 
     The Stim circuit is first flattened to unroll any REPEAT blocks,
     then noise/annotation instructions are dropped. The resulting
-    Qiskit circuit is suitable for transpilation onto IQM Garnet.
+    Qiskit circuit is suitable for transpilation onto IQM Resonance.
 
     Parameters
     ----------

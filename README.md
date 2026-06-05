@@ -50,10 +50,17 @@ Bonus points will be awarded (at our discretion) for:
 
 Submit your code and any other key results through [this Google form](https://docs.google.com/forms/d/e/1FAIpQLSeKTmoGUzxhrc4bPtLJ5Vp3VtoFSrtoes1UP3_6IoLgZDLIxg/viewform?usp=publish-editor). 
 
+<<<<<<< Updated upstream
 # Useful Resources
 
 **Please see the ``UsefulResources.md`` markdown for an overview over useful resources!** Such as, links to **IQM PulLA**, client-side libraries such as **Dynamical Decoupling**, access links to IQM Resonance!
 
+=======
+
+# Useful Resources
+
+**Please see the ``UsefulResources.md`` markdown for an overview over useful resources!** Such as, links to **IQM PulLA**, client-side libraries such as **Dynamical Decoupling**, access links to IQM Resonance!
+>>>>>>> Stashed changes
 **To access PulLA you need to be a part of a paid organisation, please approach your mentors about this!**
 
 
@@ -97,14 +104,17 @@ Note the docstrings reminding you, that you should verify this logic carefully b
 
 ### 1. A way to generate the surface code circuit
 
-The pipeline currently has no entry point. You need to build a surface code generator! 
+The pipeline currently has no entry point. You need to build a surface code generator in the framework of your choice! 
 
 Concretely, you need a function that accepts:
 
 * a code distance
 * a number of stabilizer rounds, 
 * which memory experiment we are looking at (Z or X)
-* optionally a noise model, and returns a `stim.Circuit` or a `qiskit.QuantumCircuit`. 
+* optionally a noise model, 
+* and returns a `stim.Circuit` or a `qiskit.QuantumCircuit`, or ...
+
+You do not have to build this in Stim or Qiskit if you prefer to use another framework! 
 
 One decision worth thinking about: Most surface codes default to mid-circuit resets on ancilla qubits after a measurement (`MR`), so each round starts with a fresh ancilla and each raw measurement directly gives that round's syndrome. An alternative is to omit the reset: the ancilla then accumulates across rounds, and each raw measurement is the ``XOR`` of all syndromes up to that point. The detector definitions are identical in both cases, but the no-reset version avoids the reset error, leaving the ancilla live and decohering between rounds. Both are viable — the no-reset path is particularly relevant on hardware where resets introduce errors.
 
